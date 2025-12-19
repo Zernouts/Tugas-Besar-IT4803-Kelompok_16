@@ -6,7 +6,6 @@
 struct Penumpang {
     std::string id;
     std::string nama;
-    // Tambah field lain jika perlu, misalnya lokasi
 };
 
 struct NodePenumpang {
@@ -18,7 +17,6 @@ struct ListPenumpang {
     NodePenumpang* first;
 };
 
-// Deklarasi fungsi
 void createListPenumpang(ListPenumpang& list);
 NodePenumpang* createNodePenumpang(const Penumpang& data);
 void insertLastPenumpang(ListPenumpang& list, const Penumpang& data);
@@ -28,3 +26,4 @@ void showAllPenumpang(const ListPenumpang& list);
 void printPenumpang(const Penumpang& data);
 
 #endif
+
