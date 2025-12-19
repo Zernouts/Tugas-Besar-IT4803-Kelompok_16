@@ -6,7 +6,6 @@
 struct Ojol {
     std::string id;
     std::string nama;
-    // Tambah field lain jika perlu, misalnya rating, kendaraan
 };
 
 struct NodeOjol {
@@ -18,7 +17,6 @@ struct ListOjol {
     NodeOjol* first;
 };
 
-// Deklarasi fungsi
 void createListOjol(ListOjol& list);
 NodeOjol* createNodeOjol(const Ojol& data);
 void insertLastOjol(ListOjol& list, const Ojol& data);
@@ -28,3 +26,4 @@ void showAllOjol(const ListOjol& list);
 void printOjol(const Ojol& data);
 
 #endif
+
