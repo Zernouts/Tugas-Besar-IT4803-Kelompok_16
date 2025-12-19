@@ -8,7 +8,6 @@
 struct RelasiInfo {
     std::string idRelasi;
     double harga;  // Contoh info relasi
-    // Tambah field lain jika perlu, misalnya tanggal
 };
 
 struct NodeRelasi {
@@ -22,7 +21,6 @@ struct ListRelasi {
     NodeRelasi* first;
 };
 
-// Deklarasi fungsi
 void createListRelasi(ListRelasi& list);
 NodeRelasi* createNodeRelasi(NodeOjol* parent, NodePenumpang* child, const RelasiInfo& info);
 void insertRelasi(ListRelasi& list, NodeOjol* parent, NodePenumpang* child, const RelasiInfo& info);
@@ -42,3 +40,4 @@ void editRelasiChangeChild(ListRelasi& list, const std::string& idOjol, const st
 void editRelasiChangeParent(ListRelasi& list, const std::string& idOjol, const std::string& idPenumpang, const std::string& idRelasi, NodeOjol* newParent);
 
 #endif
+
