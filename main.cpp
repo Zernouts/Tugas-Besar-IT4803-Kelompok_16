@@ -6,18 +6,15 @@
 
 using namespace std;
 
-// Deklarasi list global
 ListOjol listOjol;
 ListPenumpang listPenumpang;
 ListRelasi listRelasi;
 
-// Fungsi seedDummy untuk data awal
 void seedDummy(ListOjol& listOjol, ListPenumpang& listPenumpang, ListRelasi& listRelasi) {
     createListOjol(listOjol);
     createListPenumpang(listPenumpang);
     createListRelasi(listRelasi);
 
-    // Tambah Ojol dummy
     Ojol ojol1 = {"O001", "Driver A"};
     Ojol ojol2 = {"O002", "Driver B"};
     Ojol ojol3 = {"O003", "Driver C"};
@@ -25,7 +22,6 @@ void seedDummy(ListOjol& listOjol, ListPenumpang& listPenumpang, ListRelasi& lis
     insertLastOjol(listOjol, ojol2);
     insertLastOjol(listOjol, ojol3);
 
-    // Tambah Penumpang dummy
     Penumpang pen1 = {"P001", "Passenger A"};
     Penumpang pen2 = {"P002", "Passenger B"};
     Penumpang pen3 = {"P003", "Passenger C"};
@@ -33,7 +29,6 @@ void seedDummy(ListOjol& listOjol, ListPenumpang& listPenumpang, ListRelasi& lis
     insertLastPenumpang(listPenumpang, pen2);
     insertLastPenumpang(listPenumpang, pen3);
 
-    // Tambah Relasi dummy
     NodeOjol* o1 = findOjolById(listOjol, "O001");
     NodeOjol* o2 = findOjolById(listOjol, "O002");
     NodePenumpang* p1 = findPenumpangById(listPenumpang, "P001");
@@ -50,7 +45,6 @@ void seedDummy(ListOjol& listOjol, ListPenumpang& listPenumpang, ListRelasi& lis
     cout << "Data dummy berhasil dimuat!" << endl;
 }
 
-// Menu Insert Ojol
 void menuInsertOjol(ListOjol& list) {
     string id, nama;
     cout << "Masukkan ID Ojol: ";
@@ -62,7 +56,6 @@ void menuInsertOjol(ListOjol& list) {
     cout << "Ojol berhasil ditambahkan!" << endl;
 }
 
-// Menu Insert Penumpang
 void menuInsertPenumpang(ListPenumpang& list) {
     string id, nama;
     cout << "Masukkan ID Penumpang: ";
@@ -74,7 +67,6 @@ void menuInsertPenumpang(ListPenumpang& list) {
     cout << "Penumpang berhasil ditambahkan!" << endl;
 }
 
-// Menu Insert Relasi
 void menuInsertRelasi(ListRelasi& listRelasi, ListOjol& listOjol, ListPenumpang& listPenumpang) {
     string idOjol, idPenumpang, idRelasi;
     double harga;
@@ -97,7 +89,6 @@ void menuInsertRelasi(ListRelasi& listRelasi, ListOjol& listOjol, ListPenumpang&
     }
 }
 
-// Menu Delete Ojol
 void menuDeleteOjol(ListRelasi& listRelasi, ListOjol& listOjol) {
     string id;
     cout << "Masukkan ID Ojol yang akan dihapus: ";
@@ -112,7 +103,6 @@ void menuDeleteOjol(ListRelasi& listRelasi, ListOjol& listOjol) {
     }
 }
 
-// Menu Delete Penumpang
 void menuDeletePenumpang(ListRelasi& listRelasi, ListPenumpang& listPenumpang) {
     string id;
     cout << "Masukkan ID Penumpang yang akan dihapus: ";
@@ -127,7 +117,6 @@ void menuDeletePenumpang(ListRelasi& listRelasi, ListPenumpang& listPenumpang) {
     }
 }
 
-// Menu Delete Relasi
 void menuDeleteRelasi(ListRelasi& list) {
     string idOjol, idPenumpang, idRelasi;
     cout << "Masukkan ID Ojol: ";
@@ -140,7 +129,6 @@ void menuDeleteRelasi(ListRelasi& list) {
     cout << "Relasi berhasil dihapus!" << endl;
 }
 
-// Menu Find Ojol
 void menuFindOjol(const ListOjol& list) {
     string id;
     cout << "Masukkan ID Ojol: ";
@@ -153,7 +141,6 @@ void menuFindOjol(const ListOjol& list) {
     }
 }
 
-// Menu Find Penumpang
 void menuFindPenumpang(const ListPenumpang& list) {
     string id;
     cout << "Masukkan ID Penumpang: ";
@@ -166,7 +153,6 @@ void menuFindPenumpang(const ListPenumpang& list) {
     }
 }
 
-// Menu Find Apakah Relasi Ada
 void menuFindApakahRelasiAda(const ListRelasi& list) {
     string idOjol, idPenumpang;
     cout << "Masukkan ID Ojol: ";
@@ -180,7 +166,6 @@ void menuFindApakahRelasiAda(const ListRelasi& list) {
     }
 }
 
-// Menu Show Children of Ojol
 void menuShowChildrenOfOjol(const ListRelasi& list) {
     string id;
     cout << "Masukkan ID Ojol: ";
@@ -188,7 +173,7 @@ void menuShowChildrenOfOjol(const ListRelasi& list) {
     showChildrenOfOjol(list, id);
 }
 
-// Menu Show Parents of Child
+
 void menuShowParentsOfChild(const ListRelasi& list) {
     string id;
     cout << "Masukkan ID Penumpang: ";
@@ -196,27 +181,22 @@ void menuShowParentsOfChild(const ListRelasi& list) {
     showParentsOfChild(list, id);
 }
 
-// Menu Show All Ojol
 void menuShowAllOjol(const ListOjol& list) {
     showAllOjol(list);
 }
 
-// Menu Show All Penumpang
 void menuShowAllPenumpang(const ListPenumpang& list) {
     showAllPenumpang(list);
 }
 
-// Menu Show Parent with Children and Relasi
 void menuShowParentWithChildrenAndRelasi(const ListRelasi& list, const ListOjol& listOjol) {
     showParentWithChildrenAndRelasi(list, listOjol);
 }
 
-// Menu Show Child with Parents and Relasi
 void menuShowChildWithParentsAndRelasi(const ListRelasi& list, const ListPenumpang& listPenumpang) {
     showChildWithParentsAndRelasi(list, listPenumpang);
 }
 
-// Menu Count Children of Ojol
 void menuCountChildrenOfOjol(const ListRelasi& list) {
     string id;
     cout << "Masukkan ID Ojol: ";
@@ -225,7 +205,7 @@ void menuCountChildrenOfOjol(const ListRelasi& list) {
     cout << "Jumlah penumpang untuk Ojol " << id << ": " << count << endl;
 }
 
-// Menu Count Parents of Child
+
 void menuCountParentsOfChild(const ListRelasi& list) {
     string id;
     cout << "Masukkan ID Penumpang: ";
@@ -234,19 +214,16 @@ void menuCountParentsOfChild(const ListRelasi& list) {
     cout << "Jumlah ojol untuk Penumpang " << id << ": " << count << endl;
 }
 
-// Menu Count Children Without Parent
 void menuCountChildrenWithoutParent(const ListRelasi& list, const ListPenumpang& listPenumpang) {
     int count = countChildrenWithoutParent(list, listPenumpang);
     cout << "Jumlah penumpang tanpa ojol: " << count << endl;
 }
 
-// Menu Count Parents Without Child
 void menuCountParentsWithoutChild(const ListRelasi& list, const ListOjol& listOjol) {
     int count = countParentsWithoutChild(list, listOjol);
     cout << "Jumlah ojol tanpa penumpang: " << count << endl;
 }
 
-// Menu Edit Relasi Change Child
 void menuEditRelasiChangeChild(ListRelasi& list, ListPenumpang& listPenumpang) {
     string idOjol, idPenumpang, idRelasi, newIdPenumpang;
     cout << "Masukkan ID Ojol: ";
@@ -266,7 +243,6 @@ void menuEditRelasiChangeChild(ListRelasi& list, ListPenumpang& listPenumpang) {
     }
 }
 
-// Menu Edit Relasi Change Parent
 void menuEditRelasiChangeParent(ListRelasi& list, ListOjol& listOjol) {
     string idOjol, idPenumpang, idRelasi, newIdOjol;
     cout << "Masukkan ID Ojol Lama: ";
@@ -286,7 +262,6 @@ void menuEditRelasiChangeParent(ListRelasi& list, ListOjol& listOjol) {
     }
 }
 
-// Fungsi utama
 int main() {
     seedDummy(listOjol, listPenumpang, listRelasi);
     int choice;
